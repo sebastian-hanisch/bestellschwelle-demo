@@ -1,7 +1,6 @@
 # Bestellschwelle: aus Base-Stock wird (s,S) – Streamlit-Demo
 
-<!-- Live-Link nach dem Deploy direkt hierher setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-bestellschwelle-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-bestellschwelle-demo.streamlit.app/)**
 
 Demo der „Konzepte“-Reihe zu Bestandspolitiken für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Sie zeigt, was passiert, wenn jede Bestellung **Fixkosten K** kostet: Die Politik **Base-Stock** („bestelle bis S, sobald die Bestandsposition unter S fällt“) kennt keine Fixkosten und bestellt bei Fixkosten oberhalb einer Schwelle K\* zu oft. Die exakte Rückwärtsrechnung (dynamische Programmierung, DP) setzt eine zweite Schwelle: **bestelle erst, wenn die Position auf s oder darunter gefallen ist, dann bis S**. Kante in der Reihe: Base-Stock hat die Schwäche „keine Fixkosten“, diese Demo behebt sie. Die **Bestandsposition** z (Bestand plus Bestelltes minus Rückstand) wird als gegeben übernommen und nur erklärt.
 
