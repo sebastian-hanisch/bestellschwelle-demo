@@ -102,6 +102,17 @@ Weiter unten: die **Kernfrage** mit Verdikt, die Experimente in sechs Tabs, **�
 """
 )
 
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/bestellschwelle-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Kostet jede Bestellung einen festen Betrag, egal wie viel bestellt wird (**Fixkosten**), lohnt es sich ab einer gewissen Höhe der Fixkosten nicht mehr, in jeder Periode aufzufüllen. Die einfache Regel „auf einen festen Bestand auffüllen“ (**Base-Stock**) bestellt dann zu oft. Die beste Regel setzt eine **zweite Schwelle**: Erst wenn die **Bestandsposition** (Bestand plus Bestelltes minus Rückstand) auf die untere Schwelle s oder darunter gefallen ist, wird bestellt, und zwar bis zur oberen Schwelle S (**(s,S)-Regel**). Die Demo rechnet die beste Regel exakt aus (dynamische Programmierung) und zeigt, wie viel die einfache Regel mehr kostet. Das gilt im Modell der Demo mit zufälliger Nachfrage (Poisson) und erzeugten Kosten, nicht für echte Lager. Prozentzahlen aus einfachen Lehrbuchformeln gelten dort nicht.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/bestellschwelle-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
+
 with st.expander("So funktioniert die Bestellschwelle", expanded=True):
     st.markdown(
         """
@@ -419,6 +430,24 @@ with st.expander("⚠️ Annahmen, Grenzen und bekannte Probleme"):
 st.markdown("---")
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/bestellschwelle-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind die Nachfrage $D$ je Periode (Poisson, Mittel $\mu = 3$), die Lagerkosten $h$, die Fehlmengenkosten $p$ je Stück und Periode, die Fixkosten $K$ je Bestellung, die Lieferzeit $L$ und die Bestellgrenze $Q$. Gesucht ist die Bestellmenge $q(z)$ je Bestandsposition $z$, die die Durchschnittskosten je Periode minimiert.
+
+| Symbol | Bedeutung |
+|---|---|
+| $z$ | Bestandsposition vor der Bestellung (Bestand + Bestelltes − Rückstand) |
+| $y = z + q$ | Position nach der Bestellung |
+| $D_{L+1}$ | Nachfrage über $L + 1$ Perioden (Summe von $L + 1$ unabhängigen Poisson-Größen) |
+| $G(y)$ | erwartete Kosten für Lager und Fehlmengen einer Bestellung bis $y$ |
+| $v(z)$ | relative Restkosten vor der Bestellung, $g$ die Durchschnittskosten je Periode |
+| $s$, $S$ | Bestellschwelle und Bestellziel der Politik |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/bestellschwelle-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Gegeben:** Nachfrage $D$ je Periode (Poisson, Mittel $\mu = 3$), Lagerkosten $h$, Fehlmengenkosten $p$ je Stück und Periode, Fixkosten $K$ je Bestellung, Lieferzeit $L$, Bestellgrenze $Q$. **Gesucht:** die Bestellmenge $q(z)$ je Bestandsposition $z$, die die Durchschnittskosten je Periode minimiert.

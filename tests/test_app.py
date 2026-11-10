@@ -88,7 +88,7 @@ def test_assumptions_expander_equals_the_assumptions_text():
 
 def test_math_expander_has_one_block_per_display_equation():
     at = _fresh_app()
-    text = _expander(at, "📐 Mathematische Formulierung").markdown[0].value
+    text = [m.value for m in _expander(at, "📐 Mathematische Formulierung").markdown if "$$" in m.value][0]  # der Lesehilfe-Block steht davor
     assert text.count("$$") % 2 == 0 and text.count("$$") // 2 == 6  # Kosten, Bellman, (s,S), K-Konvexität, EOQ, Zyklus: je ein Block
 
 
